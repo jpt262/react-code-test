@@ -6,15 +6,14 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
+import { GRAPHQL_URI, LIST_SHOPS_QUERY } from './constants/api'
 import './App.css';
 
-const PING = gql`
-  query {ping}
-`;
+const GQL_QUERY = gql(LIST_SHOPS_QUERY)
 
 const client = new ApolloClient({
   link: createHttpLink({
-    uri: "http://code-test.matchsquare.com/graphql-beta",
+    uri: GRAPHQL_URI,
     fetch: fetch
   }),
   cache: new InMemoryCache()
@@ -22,10 +21,10 @@ const client = new ApolloClient({
 
 const Content = () => {
   const {
-    data: { ping = "" } = {},
+    data: { shops = {} } = {},
     error,
     loading
-  } = useQuery(PING, {});
+  } = useQuery(GQL_QUERY, {});
 
   if(error){
     return (
@@ -38,11 +37,11 @@ const Content = () => {
       <p>{loading}</p>
     )
   }
-  
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>ping: {ping}</p>
+        {shops.nodes.map(({name}) => <p>{name}</p>)}
       </header>
     </div>
   );
