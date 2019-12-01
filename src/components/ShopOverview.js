@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import ShopLogo from "./ShopLogo";
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
@@ -10,7 +11,7 @@ const ShopOverview = (shop) => {
     const animation = 'bounceInUp';
     const classes = shopOverviewTheme();
     return (
-        <div className={shop.show === true ? `animated ${animation}` : 'hidden'}>
+        <Link to={`/shop/${shop._id}`} className={shop.show === true ? `animated ${animation}` : 'hidden'}>
           <GridListTile>
             <div>
               <ShopLogo
@@ -28,7 +29,7 @@ const ShopOverview = (shop) => {
               }
             />
           </GridListTile>
-        </div>
+        </Link>
     )
 }
 

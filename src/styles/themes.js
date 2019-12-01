@@ -1,5 +1,23 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+const shopDetailTheme = makeStyles(theme => ({
+  root: {
+    height: '80vh',
+    marginTop: '52px',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
+  },
+  content: {
+    justifyContent: 'flex-start',
+    padding: 20,
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  header: {
+    paddingLeft: 20
+  }
+}))
+
 const circularIndeterminateTheme = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -45,6 +63,7 @@ const scrollTopTheme = makeStyles(theme => ({
 }))
 
 export {
+  shopDetailTheme,
   circularIndeterminateTheme,
   shopOverviewTheme,
   galleryTheme,

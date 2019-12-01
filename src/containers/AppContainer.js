@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import ScrollTop from '../components/ScrollTop';
 import SearchShops from './SearchShops.js';
+import ShopDetail from './ShopDetail.js';
 import TopNav from '../components/TopNav.js';
 import { Switch, Route, useHistory } from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo';
@@ -32,6 +33,10 @@ export default function AppContainer() {
               exact
               path="/"
               render={() => <SearchShops history={history} />} />
+            <Route
+              exact
+              path="/shop/:id"
+              component={ShopDetail} />
           </Switch>
         </ApolloProvider>
       </Container>
