@@ -1,0 +1,29 @@
+.clickable {
+  cursor: pointer;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.shop-logo {
+  width: 300px;
+  height: 300px;
+}
+
+.pagination {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #fafafa;
+}
+
+.hidden-img {
+  display: none;
+}
+
+.hidden {
+  visibility: hidden;
+  height: 300px;
+}
